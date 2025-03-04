@@ -1,18 +1,20 @@
+import { useState } from "react";
 import styles from "./SearchBar.module.css";
 
 function SearchBar() {
+	const [search, setSearch] = useState("");
 	function handleSearchInput(e) {
-		// setSearch(e.target.value);
+		setSearch(e.target.value);
 	}
 
 	// function to handle search feature
 	const handleSearchClick = () => {
 		// // check the user put something in
-		// if (search.length > 0) {
-		// 	props.handleSearch(search);
-		// } else {
-		// 	return;
-		// }
+		if (search.length > 0) {
+			// props.handleSearch(search); DO SOMETHING ON SEARCH (filter)
+		} else {
+			return;
+		}
 	};
 
 	return (
@@ -28,6 +30,7 @@ function SearchBar() {
 			<button className={styles.SearchButton} onClick={handleSearchClick}>
 				SEARCH
 			</button>
+			<p>{search}</p>
 		</div>
 	);
 }
