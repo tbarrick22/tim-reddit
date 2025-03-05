@@ -1,20 +1,25 @@
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
+import { useDispatch } from "react-redux";
+import { setSearchQuery } from "./searchSlice";
 
 function SearchBar() {
-	const [search, setSearch] = useState("");
+	const dispatch = useDispatch();
+	const [input, setInput] = useState("");
+
 	function handleSearchInput(e) {
-		setSearch(e.target.value);
+		setInput(e.target.value);
 	}
 
 	// function to handle search feature
 	const handleSearchClick = () => {
 		// // check the user put something in
-		if (search.length > 0) {
-			// props.handleSearch(search); DO SOMETHING ON SEARCH (filter)
-		} else {
-			return;
-		}
+		// if (search.length > 0) {
+		// 	// props.handleSearch(search); DO SOMETHING ON SEARCH (filter)
+		// } else {
+		// 	return;
+		// }
+		dispatch(setSearchQuery(input));
 	};
 
 	return (
@@ -30,7 +35,6 @@ function SearchBar() {
 			<button className={styles.SearchButton} onClick={handleSearchClick}>
 				SEARCH
 			</button>
-			<p>{search}</p>
 		</div>
 	);
 }

@@ -31,22 +31,27 @@ const subredditsSlice = createSlice({
 			state.selectedSubreddit = action.payload;
 		},
 	},
-	extraReducers: {
-		[fetchSubreddits.pending]: (state) => {
-			state.status = "loading";
-		},
-		[fetchSubreddits.fulfilled]: (state, action) => {
-			state.status = "succeeded";
-			state.subreddits = action.payload;
-		},
-		[fetchSubreddits.rejected]: (state, action) => {
-			state.status = "failed";
-			state.error = action.error.message;
-		},
+	extraReducers: (builder) => {
+		builder
+			.addCase(fetchSubreddits.pending, (state) => {
+				state.status = "loading";
+			})
+			.addCase(fetchSubreddits.fulfilled, (state, action) => {
+				state.status = "succeeded";
+				state.subreddits = action.payload;
+			})
+			.addCase(fetchSubreddits.rejected, (state, action) => {
+				state.status = "failed";
+				state.error = action.error.message;
+			});
 	},
 });
 
-// export actions and reducer
+// export actions, selectors, and reducer
+export const selectSubreddits = (state) => state.subreddits.subreddits;
+export const selectSelectedSubreddit = (state) =>
+	state.subreddits.selectedSubreddit;
+export const selectStatus = (state) => state.subreddits.status;
 
 export const { setSelectedSubreddit } = subredditsSlice.actions;
 
