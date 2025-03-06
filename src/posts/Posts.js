@@ -22,17 +22,18 @@ function Posts() {
 
 	// filter posts by the search value
 	const filteredPosts = posts.filter((post) =>
-		post.title.toLowerCase().includes(search.toLowerCase())
+		post.selftext.toLowerCase().includes(search.toLowerCase())
 	);
 
 	return (
-		<div>
+		<div className="post-content">
 			<h2>r/{selectedSubreddit}</h2>
 			<ul className="post-list">
 				{filteredPosts.map((post) => (
 					<Post
 						key={post.id}
 						title={post.title}
+						text={post.selftext}
 						permalink={post.permalink}
 						thumbnail={post.thumbnail}
 						author={post.author}

@@ -18,7 +18,7 @@ function Subreddits() {
 	}
 
 	return (
-		<div>
+		<div className="sub-content">
 			<h2>Subreddits</h2>
 			<ul className="subreddit-list">
 				{subreddits.map((sub) => (

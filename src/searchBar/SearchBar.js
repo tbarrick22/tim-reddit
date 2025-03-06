@@ -1,9 +1,10 @@
 import { useState } from "react";
-import styles from "./SearchBar.module.css";
+// import styles from "./SearchBar.module.css";
 import { useDispatch } from "react-redux";
 import { setSearchQuery } from "./searchSlice";
+import styles from "./SearchBar.module.css";
 
-function SearchBar() {
+function SearchBar({ className }) {
 	const dispatch = useDispatch();
 	const [input, setInput] = useState("");
 
@@ -22,19 +23,25 @@ function SearchBar() {
 		dispatch(setSearchQuery(input));
 	};
 
+	const handleKeyDown = (event) => {
+		if (event.key === "Enter") {
+			handleSearchClick();
+		}
+	};
+
 	return (
-		<div className={styles.SearchBar}>
+		<div className={`${styles.searchBar} ${className}`}>
 			<input
+				className={styles.input}
 				id="search"
 				type="text"
 				placeholder="Filter your results..."
 				// value={search}
 				name="search"
 				onChange={handleSearchInput}
+				onKeyDown={handleKeyDown}
 			></input>
-			<button className={styles.SearchButton} onClick={handleSearchClick}>
-				SEARCH
-			</button>
+			<button onClick={handleSearchClick}>🔎</button>
 		</div>
 	);
 }

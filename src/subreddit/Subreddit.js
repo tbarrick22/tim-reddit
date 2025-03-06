@@ -22,9 +22,9 @@ function Subreddit({ name, icon }) {
 	};
 
 	return (
-		<li onClick={handleClick}>
-			<img src={iconLink} alt={name + " Icon"} style={iconStyle} />
-			<h3>r/{name}</h3>
+		<li onClick={handleClick} className={styles.sub}>
+			<img src={iconLink} alt={""} style={iconStyle} />
+			<h5> r/{name}</h5>
 		</li>
 	);
 }

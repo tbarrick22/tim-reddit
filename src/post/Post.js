@@ -1,6 +1,6 @@
 import styles from "./Post.module.css";
 
-function Post({ title, permalink, thumbnail, author }) {
+function Post({ title, permalink, text, thumbnail, author }) {
 	// prevent empty string passing to src
 	let thumbLink = thumbnail;
 	if (thumbLink === "") {
@@ -8,9 +8,14 @@ function Post({ title, permalink, thumbnail, author }) {
 	}
 
 	return (
-		<li>
+		<li className={styles.postElement}>
+			<br />
 			<h3>{title}</h3>
+			<br />
 			<img src={thumbLink} alt={title + " thumbnail"} />
+			<br />
+			<br />
+			<p>{text}</p>
 			<br />
 			<a
 				href={`https://www.reddit.com${permalink}`}
@@ -19,6 +24,8 @@ function Post({ title, permalink, thumbnail, author }) {
 			>
 				{title}
 			</a>
+			<br />
+			<br />
 			<p>By: {author}</p>
 		</li>
 	);

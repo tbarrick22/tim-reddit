@@ -1,0 +1,38 @@
+.navBar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px;
+	padding-right: 40px;
+	padding-left: 40px;
+	box-shadow: 0 10px 12px rgb(200, 200, 200);
+	padding-bottom: 6px;
+	padding-top: 6px;
+	background-color: rgb(240, 240, 240);
+}
+
+.logo {
+	height: 96%;
+	margin-right: 40px;
+}
+
+.searchBox {
+	height: 100%;
+	width: 600px;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+@media only screen and (max-width: 500px) {
+	.searchBox {
+		flex-wrap: wrap;
+	}
+	.logo {
+		margin-right: 20px;
+	}
+	.navBar {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+}
