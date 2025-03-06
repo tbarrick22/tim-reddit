@@ -1,4 +1,4 @@
-// import styles from "./Posts.module.css";
+import styles from "./Posts.module.css";
 import Post from "../post/Post";
 import { useSelector } from "react-redux";
 import { selectPosts, selectStatus } from "./postsSlice";
