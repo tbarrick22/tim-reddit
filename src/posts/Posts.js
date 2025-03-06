@@ -28,7 +28,7 @@ function Posts() {
 	return (
 		<div className="post-content">
 			<h2>r/{selectedSubreddit}</h2>
-			<ul className="post-list">
+			<ul className={styles.postList}>
 				{filteredPosts.map((post) => (
 					<Post
 						key={post.id}
