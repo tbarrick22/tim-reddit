@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import Subreddit from "../subreddit/Subreddit";
-import styles from "./Subreddits.module.css";
+// import styles from "./Subreddits.module.css";
 import { selectStatus, selectSubreddits } from "./subredditsSlice";
 
 function Subreddits() {

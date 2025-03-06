@@ -1,9 +1,9 @@
 import "./App.css";
-import { ReactComponent as Logo } from "../images/Reddit_Lockup_Logo.svg";
+// import { ReactComponent as Logo } from "../images/Reddit_Lockup_Logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 // import components
 import NavBar from "../navBar/NavBar";
-import SearchBar from "../searchBar/SearchBar";
+// import SearchBar from "../searchBar/SearchBar";
 import Posts from "../posts/Posts";
 import Subreddits from "../subreddits/Subreddits";
 import {
